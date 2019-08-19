@@ -1,6 +1,17 @@
 cluster.name: "docker-cluster"
+node.name: es-node2
 network.host: 0.0.0.0
+http.port: 9202
+node.data: true
+node.ingest: false
+node.master: true
 discovery.zen.minimum_master_nodes: 2
-discovery.type: zen
-discovery.zen.ping.unicast.hosts: "elasticsearch"
+discovery.seed_hosts:
+ - elasticsearch
+ - elasticsearch2:9202
+ - elasticsearch3:9203
+cluster.initial_master_nodes:
+ - es-master
+ - es-node2
+ - es-node3
 bootstrap.memory_lock: true

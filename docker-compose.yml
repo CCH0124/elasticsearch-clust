@@ -35,6 +35,8 @@ services:
         hard: -1
     volumes:
       - ./elasticsearch/config/elasticsearch-node2.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    ports:
+      - "9202:9200"
     environment:
       ES_JAVA_OPTS: "-Xmx512m -Xms512m"
     networks:
@@ -53,6 +55,8 @@ services:
         hard: -1
     volumes:
       - ./elasticsearch/config/elasticsearch-node3.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    ports:
+      - "9203:9200"
     environment:
       ES_JAVA_OPTS: "-Xmx512m -Xms512m"
     networks:
